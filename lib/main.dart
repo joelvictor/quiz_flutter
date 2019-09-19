@@ -77,8 +77,10 @@ class _MyAppState extends State<MyApp> {
   double _total = 0;
 
   void _resetQuiz() {
-    _questionIndex = 0;
     _total = 0;
+    setState(() {
+      _questionIndex = 0;
+    });
   }
 
   void _answerQuestion(double score) {
@@ -97,7 +99,8 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My Quiz'),
         ),
-        body: _questionIndex < _questions.length
+        body:
+          _questionIndex < _questions.length
             ? Quiz(
           answerQuestion: _answerQuestion,
           questionIndex: _questionIndex,
